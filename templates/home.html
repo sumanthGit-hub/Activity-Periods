@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <h1>Welcome To HomePage</h1>
+    {% if user.is_authenticated %}
+        <h4>Welcome: <b> {{user.username}} </b></h4>
+    {% else %}
+        <h4>Welcome : Visitor</h4>
+    {% endif %}
+
+<marquee behavior="scroll" bgcolor="yellow" loop="-1" width="30%">
+    <i>
+       <font color="blue">
+         Today's date is : 
+         <strong>
+          <span id="time"></span>
+         </strong>           
+       </font>
+    </i>
+ </marquee>
+
+ <script>
+    var today = new Date();
+    document.getElementById('time').innerHTML=today;
+ </script>
+
+
+
+{% endblock %}

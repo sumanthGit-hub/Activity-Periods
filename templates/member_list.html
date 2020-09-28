@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>Member List</title>
+  <h3>Member List</h3>
+
+  <table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+      <tr>
+        <td>Full Name</td>
+        <td>Location</td>
+        <td>Start_Time</td>
+        <td>End_time</td>
+        <td>Status</td>
+        </td>
+      </tr>
+      <tbody>
+        {% for emp in list %}
+          <tr>
+            <td>{{emp.real_name}}</td>
+            <td>{{emp.tz}}</td>
+            <td>{{emp.start_time}}</td>
+            <td>{{emp.end_time}}</td>
+            <td>{{emp.status}}</td>
+            <td>
+              <form class="d-inline" action="{% url 'delete' emp.id %}" method="post">
+                {% csrf_token %}
+                <button type="delete" class="btn">
+                  <i class="far fa-trash-alt fa-lg text-danger float-right"></i>Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </thead>
+  </table>
+
+
+{% endblock %}

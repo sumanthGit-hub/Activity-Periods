@@ -1,0 +1,7 @@
+# Required technologies
+Django==3.0.1
+django-crispy-forms==1.9.2
+
+
+
+
